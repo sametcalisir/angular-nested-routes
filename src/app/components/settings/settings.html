@@ -1,0 +1,38 @@
+<h3>Settings Panel</h3>
+<div class="settings-content">
+  <div class="setting-item">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="settings().emailNotifications"
+        (change)="updateSetting('emailNotifications', $event)"
+      />
+      Email Notifications
+    </label>
+  </div>
+  <div class="setting-item">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="settings().darkMode"
+        (change)="updateSetting('darkMode', $event)"
+      />
+      Dark Mode
+    </label>
+  </div>
+  <div class="setting-item">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="settings().autoSave"
+        (change)="updateSetting('autoSave', $event)"
+      />
+      Auto-save
+    </label>
+  </div>
+  <button class="btn" (click)="saveSettings()">Save Settings</button>
+  <button class="btn btn-secondary" (click)="resetSettings()">Reset</button>
+  <div class="status" *ngIf="hasUnsavedChanges()">
+    <span class="unsaved-indicator">● Unsaved changes</span>
+  </div>
+</div>
